@@ -16,3 +16,6 @@ jobs:
 
       - name: Validate README
         run: test -f README.md
+
+      - name: Validate workflow directory
+        run: test -d .github/workflows
