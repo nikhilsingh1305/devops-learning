@@ -19,3 +19,6 @@ jobs:
 
       - name: Validate workflow directory
         run: test -d .github/workflows
+
+      - name: Intentional failure test
+        run: exit 1
