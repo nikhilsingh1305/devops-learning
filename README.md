@@ -7,3 +7,7 @@ This repository documents my hands-on journey into DevOps, including Git, CI/CD,
 - Git fundamentals
 - Version control workflow
 - DevOps project development
+
+## Docker
+
+The Docker phase will focus on containerizing the application and understanding images, containers, networking, volumes, and registries.
