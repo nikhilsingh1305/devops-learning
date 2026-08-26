@@ -1,9 +1,15 @@
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+
+@app.route("/health")
 def health_check():
-    return {
+    return jsonify({
         "status": "healthy",
         "service": "devops-learning"
-    }
+    })
 
 
 if __name__ == "__main__":
-    print(health_check())
+    app.run(host="0.0.0.0", port=5000)
