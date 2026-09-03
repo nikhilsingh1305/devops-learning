@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    image: devops-learning:compose
+    container_name: devops-learning-app
+    environment:
+      APP_ENV: development
+    ports:
+      - "5000:5000"
+    restart: unless-stopped

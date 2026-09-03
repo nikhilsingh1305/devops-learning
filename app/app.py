@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, jsonify
 
 app = Flask(__name__)
@@ -7,7 +9,8 @@ app = Flask(__name__)
 def health_check():
     return jsonify({
         "status": "healthy",
-        "service": "devops-learning"
+        "service": "devops-learning",
+    	"environment": os.getenv("APP_ENV", "unknown")
     })
 
 
