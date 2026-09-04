@@ -8,3 +8,14 @@ services:
     ports:
       - "5000:5000"
     restart: unless-stopped
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: devops
+      POSTGRES_PASSWORD: devops_password
+      POSTGRES_DB: devopsdb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
