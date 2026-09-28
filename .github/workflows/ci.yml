@@ -34,7 +34,7 @@ jobs:
         run: pytest
 
       - name: Build Docker image
-        run: docker build -t ghcr.io/${{ github.repository_owner }}/devops-learning:ci .
+  	run: docker build -t ghcr.io/${{ github.repository_owner }}/devops-learning:${{ github.sha }} .
 
       - name: Log in to GHCR
         uses: docker/login-action@v3
@@ -44,4 +44,4 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Push Docker image
-        run: docker push ghcr.io/${{ github.repository_owner }}/devops-learning:ci
+  	run: docker push ghcr.io/${{ github.repository_owner }}/devops-learning:${{ github.sha }}
