@@ -16,3 +16,10 @@ jobs:
       - name: Deployment started
         run: |
           echo "Deploying image tag: ${{ inputs.image_tag }}"
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
