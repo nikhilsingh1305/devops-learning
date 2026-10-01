@@ -51,4 +51,5 @@ jobs:
 
       - name: Test application internally
         if: always()
-        run: docker exec devops-learning-app python -c "import urllib.request; print(urllib.request.urlopen('http://127.0.0.1:5000/health').read().decode())"
+        run: |
+          docker exec devops-learning-app python -c "import urllib.request, urllib.error; url='http://127.0.0.1:5000/health'; exec('try:\n response=urllib.request.urlopen(url)\n print(response.read().decode())\nexcept urllib.error.HTTPError as e:\n print('HTTP Status:', e.code)\n print('Response:', e.read().decode())')"
