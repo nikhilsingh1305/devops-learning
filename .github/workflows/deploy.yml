@@ -26,3 +26,12 @@ jobs:
 
       - name: Pull Docker image
         run: docker pull "ghcr.io/${{ github.repository_owner }}/devops-learning:${{ inputs.image_tag }}"
+
+      - name: Run Docker container
+        run: |
+          docker run -d \
+            --name devops-learning-app \
+            -p 5000:5000 \
+            -e APP_ENV=deployment \
+            "ghcr.io/${{ github.repository_owner }}/devops-learning:${{ inputs.image_tag }}"
+
