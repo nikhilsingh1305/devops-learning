@@ -37,3 +37,6 @@ jobs:
 
       - name: Check container status
         run: docker ps -a
+
+      - name: Verify application health
+        run: curl --fail http://localhost:5000/health
