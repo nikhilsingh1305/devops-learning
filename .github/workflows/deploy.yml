@@ -40,3 +40,7 @@ jobs:
 
       - name: Verify application health
         run: curl --fail http://localhost:5000/health
+
+      - name: Show container logs
+        if: always()
+        run: docker logs devops-learning-app
