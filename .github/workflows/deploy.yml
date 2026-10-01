@@ -14,4 +14,5 @@ jobs:
 
     steps:
       - name: Deployment started
-        run: echo "Deploying image tag: ${{ inputs.image_tag }}"
+        run: |
+          echo "Deploying image tag: ${{ inputs.image_tag }}"
