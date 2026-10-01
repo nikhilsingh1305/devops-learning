@@ -2,6 +2,11 @@ name: DevOps Learning Deployment
 
 on:
   workflow_dispatch:
+    inputs:
+      image_tag:
+        description: "Docker image tag to deploy"
+        required: true
+        default: "1.0.2"
 
 jobs:
   deploy:
@@ -9,4 +14,4 @@ jobs:
 
     steps:
       - name: Deployment started
-        run: echo "Deployment workflow started"
+        run: echo "Deploying image tag: ${{ inputs.image_tag }}"
