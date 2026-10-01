@@ -35,3 +35,5 @@ jobs:
             -e APP_ENV=deployment \
             "ghcr.io/${{ github.repository_owner }}/devops-learning:${{ inputs.image_tag }}"
 
+      - name: Check container status
+        run: docker ps -a
