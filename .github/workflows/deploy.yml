@@ -41,6 +41,10 @@ jobs:
       - name: Verify application health
         run: curl --fail http://localhost:5000/health
 
+      - name: Inspect container state
+        if: always()
+        run: docker inspect devops-learning-app --format '{{json .State}}'
+
       - name: Show container logs
         if: always()
         run: docker logs devops-learning-app
